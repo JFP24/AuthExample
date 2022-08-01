@@ -32,3 +32,4 @@ module.exports = (sequelize) => {
     { timestamps: true, createdAt: false, updatedAt: false }
   );
 };
+//COMENTARIO DE PRUEBA

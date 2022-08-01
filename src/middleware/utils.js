@@ -69,3 +69,6 @@ module.exports = {
   tokenSign,
   checkAuth,
 };
+
+
+//COMENTARIO DE PRUEBA
