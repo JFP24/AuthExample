@@ -62,7 +62,7 @@ const tokenSign = async (user) => {
     }
   );
 };
-
+//organizando el codigo para mandar el pull request
 module.exports = {
   checkRoleAuth,
   compare,

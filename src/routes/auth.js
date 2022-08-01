@@ -11,3 +11,4 @@ router.post("/login", auth.login);
 router.put("/update/:id", check.checkAuth, auth.updateUser);
 
 module.exports = router;
+//entendiendo mejor el flujo de gitflow
