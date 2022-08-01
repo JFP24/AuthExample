@@ -1,5 +1,5 @@
 const { Users } = require("../db");
-
+//creando un comentario en la segunda
 const createUser = async (req, res) => {
   try {
     const { username, email, password, role } = req.body;
