@@ -27,7 +27,6 @@ const checkAuth = async (req, res, next) => {
     const token = req.headers.authorization.split(" ").pop(); //Accedemos a el token del user
     const tokenData = jwt.verify(token, "autho"); //Verificamos que sea un token valido
     if (tokenData.id) {
-      s;
       //Si es valido pasamos a la siguiente funcion
       next();
     } else {

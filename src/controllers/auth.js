@@ -26,15 +26,20 @@ const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
     const { username } = req.body;
-    const update = await Users.update(
-      {
-        username,
-      },
-      {
-        where: { id: id },
-      }
-    );
-    res.status(202).json("se actualizo");
+    const findUser = await Users.findOne({ where: { username } });
+    if (!findUser) {
+      const update = await Users.update(
+        {
+          username,
+        },
+        {
+          where: { id: id },
+        }
+      );
+      return res.status(202).json("se actualizo");
+    } else {
+      return res.status(404).json("Ya existe ese username");
+    }
   } catch (error) {
     console.log(error);
   }
