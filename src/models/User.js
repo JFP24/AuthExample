@@ -2,6 +2,8 @@ const { DataTypes } = require("sequelize");
 const bcrypt = require("bcryptjs");
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
+//users modelos haciendo ramas
+//cambios desde la rama
 module.exports = (sequelize) => {
   // defino el modelo
 
