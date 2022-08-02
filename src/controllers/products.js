@@ -5,14 +5,19 @@ const createProduct = async (req, res) => {
     //llegan los datos por body
     const { name, category, price, image } = req.body;
     //creamos en la db
-    const newProduct = await Products.create({
-      name,
-      category,
-      price,
-      image,
-    });
-    //devolvemos la informacion
-    res.status(202).json(newProduct);
+    if(name && category && price ){
+      const newProduct = await Products.create({
+        name,
+        category,
+        price,
+        image,
+      });
+      //devolvemos la informacion
+      res.status(202).json(newProduct);
+    }else{
+      return res.status(404).send("te faltan parametros por llenar")
+    }
+    
   } catch (error) {
     console.log(error);
     return res.status(404).send("error desde createProducts");

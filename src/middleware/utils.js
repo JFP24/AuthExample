@@ -18,13 +18,14 @@ const checkRoleAuth = async (req, res, next) => {
     }
   } catch (error) {
     console.log(error);
-    res.status(409).send({ error: "Hubo un problema con tu token" });
+    res.status(409).send({ error: "Dbees estar loguado para generar esta accion" });
   }
 };
 
 const checkAuth = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ").pop(); //Accedemos a el token del user
+   if(!token) return res.send("no estas logueado")
     const tokenData = jwt.verify(token, "autho"); //Verificamos que sea un token valido
     if (tokenData.id) {
       //Si es valido pasamos a la siguiente funcion

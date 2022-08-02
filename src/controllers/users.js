@@ -3,8 +3,11 @@ const { Users } = require("../db");
 const createUser = async (req, res) => {
   try {
     const { username, email, password, role } = req.body;
+    if(!email) return res.send("no email")
     const userFound = await Users.findOne({ where: { email } });
+   
     console.log(userFound);
+  if(username && email && password){
     if (!userFound) {
       const createUser = await Users.create({
         username,
@@ -17,6 +20,9 @@ const createUser = async (req, res) => {
     } else {
       res.status(404).json("ya exite email ");
     }
+  }else{
+    return res.status(404).send("debes llenar los parametros ")
+  }
   } catch (error) {
     console.log(error);
   }
