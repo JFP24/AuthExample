@@ -1,6 +1,7 @@
 const { Users } = require("../db");
 const check = require("../middleware/utils");
-
+//haciendo un cambio desde la laptop
+//modificamos un archivo 
 const login = async (req, res) => {
   try {
     const { email, password } = req.body; //llega info por formulario
